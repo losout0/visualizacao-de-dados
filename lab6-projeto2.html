@@ -1,0 +1,137 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=bar-negative&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6x6YOAHmAQOQBqAhgE4T0DnAx8LACZcBuwLAFcAtjh7iAxgAshferBwjYjHFjadY9LvWg7oZZsEbUANERLoAzkIBGZSjQAi9XlYmwATAAYAjAFYtL29PABZYYHsIN1hoBQAxegAvHGhuBQBhJjiAL9t6MwtLXAAzKlhqSVTDM1gAejrYDOqcRgxpcUxcWGljCCSYMHosLABPIpIHMABlMFHcAlRLZdhJQWMaAGIAZl3ClcsSwen-_GCJ4gBfcwObewoZuYXCA5I1rA2KzYA2X_3X9BHAwnFIEXyhC7oS5Fa5EMDAQSQECLIpgZgAc3RrRo9HIECs_3QuPxAAVgBADNiXpY5iAztQrNJXMAAO7UGFEWHoXBYtIokjpIYEADadEEonEuiEw1q1AAouQ6dArDgCaYKgxmBouAAKACCelgBsMUEYAEpqABdTk3WDkPV4qwiopLGmjOk0eTCHDskjQ9CW22jB3450kV2Td30yT0Mjo4yjQnEYlWAAqEEkAGt-StGayCCVhiqLlzLIL6CLqD4ArLq99a34AOwN3wADhbAE4Gz5u75u55u9tu6ErRyA7aVcxVWHiBHiHExDRaOKxFpoNKsEnSFGaPkTLaSOpbGoc8s8yyCGihDgD5YQMArBBIDAaBTH9wfbeSEdGCJY4YCyEaBJGfOAdRAJh6BEKwzWpAEDgaWAIMYKCrAAOi9a9VkGeg33acRy1gTCcEheD0FUMAhEYOBkNQjDhiwgBqCoRBEagAG56kaBUoJAZ56BAJVuAqWAgKfAlSIOUs_S_RQRBAJlHydODDmASQhGUhlWggVVfUsaTiHLEVtlbb40MbdVPA7fxLN8Xw0Js2BG2-UI0NbdVQg7Rs0I7dV_A7eztnVEzWwc9UOxMtDvg875_Ci4LG1CzxrRkl0LgXelNRYDhdQNLhjW04wLVk2l6T3LdYCfJRZnmM45wOd5PhKICQKgMDaOg2D6vgxCMiZaAsWwj42nyFVhJgIiGJIsiSAgEpYHAyDoPo71YAAHlgbwusk-CKKouBqFUbgOK4pp1jaH9YhwdFYwgPhxGIqwduWS5FCwFUVJm4g9uoip0VUVITt687YEu-9H0ge7Ju9J6vqhZ7YH9FYDOsIYsxoVNgCGTdZKPE9PuIc9L0Ya9ZPQcGnza19lWiT9SJ_P8wAA0GWtAhaOpggmvsQjmVqwtYDFw5V8J4WMFGIhGDh-milvQ4jYGY6hWKB7jyF4_jBNSYTqFE6BxL0r6UcR2SlAU-glNPVT1M0ycdIkl7ZKM2BhW8dUAFoAvM93W22MLYH8fxfaC2A3c8X4fPC33QndnxPDcvz_G8NDfHd0JG2Dt3W280IUquW1rUudigA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+        text: 'Variação do volume de chuva em relação ao ano anterior',
+        subtext: 'Dados de 2015 a 2024 obtidos na Fazenda Carnaúba',
+        left: 'center', // Center the title horizontally
+        textStyle: {
+            color: '#333',
+            fontSize: 20
+        },
+        subtextStyle: {
+            color: '#666',
+            fontSize: 14
+        }
+    },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    data: ['Volume anual', 'Expenses', 'Variação (Ano Anterior)']
+  },
+  xAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  yAxis: [
+    {
+      type: 'category',
+      axisTick: {
+        show: false
+      },
+      data: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
+    }
+  ],
+  series: [
+    {
+      name: 'Volume anual',
+      type: 'bar',
+      label: {
+        show: true,
+        position: 'inside',
+        formatter: function (params) {
+                    // params.value contains the data value
+                    return params.value + 'mm'; // Example: append ' units'
+                },
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [386.7, 295, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 465.6, 378.2]
+    },
+    {
+      name: 'Variação (Ano Anterior)',
+      type: 'bar',
+      itemStyle: {
+            color: function (params) {
+                // Change color based on value
+                if (params.value < 0) {
+                    return 'red'; // Color for negative values
+                } else {
+                    return 'green'; // Color for positive values
+                }
+            }
+        },
+      stack: 'Total',
+      label: {
+        show: true,
+        position: 'inside',
+        formatter: function (params) {
+                    // params.value contains the data value
+                    return params.value + 'mm'; // Example: append ' units'
+                },
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [0, -91.7, -83.5, 553.3, -266.9, 93.4, -202.8, 550.1, -473, -87.4]
+    },
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
